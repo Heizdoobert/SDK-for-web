@@ -3,3 +3,5 @@ dist/
 *.tsbuildinfo
 .DS_Store
 *.log
+remote_config/
+tracking-analytics/

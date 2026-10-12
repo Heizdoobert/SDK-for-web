@@ -386,6 +386,22 @@ const topicQuestions = await client.discovery.topicQuestions('physics', {
 
 ---
 
+## Encrypted Session Storage (`StorageManager`)
+
+Browser-only. Keeps JSON values in `sessionStorage`, gzip-compressed then AES-GCM encrypted (WebCrypto, no dependencies). The key is a non-extractable `CryptoKey` in IndexedDB, so it survives a reload and its bytes cannot be read out. Script running on the page can still call `get`, so this protects what sits in storage, not against XSS.
+
+```ts
+import { StorageManager } from '@heizdoobert/quickquiz-sdk/client';
+
+const store = new StorageManager({ namespace: 'myapp' }); // namespace defaults to "qq"
+await store.set('profile', { name: 'ada', streak: 3 });
+const profile = await store.get<{ name: string }>('profile'); // undefined when absent
+store.remove('profile');
+store.clear(); // this namespace only
+```
+
+An entry that was tampered with, copied under another name, or written under a lost key reads as `undefined` and is removed. Call it from effects or handlers, not during server render (it throws without `sessionStorage`). Options `storage` and `key` swap the backing store and the key source.
+
 ## Server-Side Authentication (`@heizdoobert/quickquiz-sdk/server`)
 
 The SDK provides ready-to-use middleware for verifying Quick Quiz Bearer tokens in your own backend services, with built-in in-memory caching and SHA-256 token hashing.

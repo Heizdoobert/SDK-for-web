@@ -105,3 +105,7 @@ export {
   exportProfileData,
   getQuestionAnalytics,
 } from './profile';
+
+// Storage
+export { StorageManager } from '../storage';
+export type { StorageManagerOptions } from '../storage';

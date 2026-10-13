@@ -5,3 +5,4 @@ dist/
 *.log
 remote_config/
 tracking-analytics/
+shared_modules/

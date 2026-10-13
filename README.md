@@ -14,6 +14,19 @@ Official TypeScript SDK for [Quick Quiz](https://quickquiz.app) — an interacti
 - **Zero Runtime Dependencies**: Built entirely around modern standard web fetch.
 - **Server Middleware Included**: First-class Next.js route wrapper and Express middleware under `@heizdoobert/quickquiz-sdk/server` with in-memory token verification caching.
 - **Robust Error Handling**: Structured `QuickQuizError` classes with standard API error codes and HTTP statuses.
+- **Ecosystem SDKs**: Modular packages including `@quizweb/sdk-core` (`shared_modules/`), `@quiz/formatter`, `@quiz/remote-config`, and `@quiz/tracking-analytics`.
+
+---
+
+## Ecosystem Packages
+
+| Package | Repository / Path | Description |
+|---|---|---|
+| `@heizdoobert/quickquiz-sdk` | [Heizdoobert/SDK-for-web](https://github.com/Heizdoobert/SDK-for-web) | Full API client, server auth, and storage manager |
+| `@quizweb/sdk-core` | `shared_modules/` | Shared domain contracts, DTOs, schemas, and validators |
+| `@quiz/formatter` | [Heizdoobert/Formatter-SDK](https://github.com/Heizdoobert/Formatter-SDK) | Pure zero-dependency helpers for formatting money, time, number & SEO |
+| `@quiz/remote-config` | [Heizdoobert/Remote-config-SDK](https://github.com/Heizdoobert/Remote-config-SDK) | Remote configuration and feature flags via Supabase |
+| `@quiz/tracking-analytics` | [Heizdoobert/Tracking-analytics-SDK](https://github.com/Heizdoobert/Tracking-analytics-SDK) | Modular PostHog analytics and Sentry monitoring integrations |
 
 ---
 
